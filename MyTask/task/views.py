@@ -44,31 +44,7 @@ class LoginAPI(KnoxLoginView):
 class URLViewSet(viewsets.ModelViewSet):
     serializer_class = UrlSerializer
     queryset =URL.objects.all()
-    
 
-class GenericAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin,
- mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
-    serializer_class = UrlSerializer
-    queryset = URL.objects.all()
-    
-    lookup_field = 'id'
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request, id=None):
-        if id:
-            return self.retrieve(request)
-        else:
-            return self.list(request)
-    
-    def post(self, request):
-        return self.create(request)
-    
-    def put(self, request, id=None):
-        return self.update(request, id)
-
-    def delete(self, request, id=None):
-        return self.destroy(request, id)
 
 class URLDetails(APIView):
 
