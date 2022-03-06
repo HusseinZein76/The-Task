@@ -11,4 +11,5 @@ class URL(models.Model):
     LongUrl = models.CharField(max_length=1000)
     ShortUrl = models.UUIDField(primary_key=True, default=uuid.uuid4, unique=True, editable=False)
     CreatedAt = models.DateTimeField(auto_now_add=True)
-    UpdatedAt = models.DateTimeField(auto_now_add=True)    
+    UpdatedAt = models.DateTimeField(auto_now_add=True) 
+    ss=    models.DateTimeField(auto_now_add=True) 
